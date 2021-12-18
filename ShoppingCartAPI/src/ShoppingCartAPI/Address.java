@@ -12,7 +12,7 @@ public class Address {
 		this.streetAddress = streetAddress;
 		this.apartmentNumber = apartmentNumber;
 	}
-
+	
 }
 
 

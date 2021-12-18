@@ -3,13 +3,17 @@ public class Customer {
 	int id;
 	Address addr;
 	Cart cart;
-	
-	public Customer(Cart cart, Address addr, int id, Database db) {
+	Tax tax;
+	public Customer(Address addr, int id, Database db) {
 		this.addr = addr;
-		this.cart = cart;
+		this.cart = new Cart(db, addr);
 		this.id = id;
+		this.tax = new Tax(addr.state);
 	}
 	
+	public Cart getCart() {
+		return this.cart;
+	}
 	String viewCart() {
 		return cart.viewCart();
 	}
@@ -23,5 +27,9 @@ public class Customer {
 		else {
 			return "Out of Stock!";
 		}
+	}
+	
+	public Address getAddress() {
+		return this.addr;
 	}
 }
